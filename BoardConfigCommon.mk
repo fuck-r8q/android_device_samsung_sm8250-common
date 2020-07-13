@@ -152,9 +152,6 @@ TARGET_USES_ION := true
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
 
-# Samsung
-BOARD_VENDOR := samsung
-
 # Prop files
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
