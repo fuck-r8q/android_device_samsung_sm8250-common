@@ -30,14 +30,15 @@ ro.netflix.bsp_rev=Q8250-19134-1
 debug.renderengine.backend=skiaglthreaded
 debug.hwui.renderer=skiagl
 renderthread.skia.reduceopstasksplitting=true 
-debug.hwui.skia_atrace_enabled=false
+
+# Disable Skia tracing by default
+debug.hwui.skia_tracing_enabled=false
+debug.hwui.skia_use_perfetto_track_events=false
 
 # Graphics
 debug.sf.disable_client_composition_cache=1
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=false
-debug.hwui.skia_tracing_enabled=false
-debug.hwui.skia_use_perfetto_track_events=false
 
 # Increase max cached processes
 activity_manager.max_cached_processes=64
