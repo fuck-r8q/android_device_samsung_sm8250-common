@@ -511,9 +511,6 @@ vendor/etc/plmn_delta_usagsm.bin
 vendor/etc/plmn_se13.bin
 vendor/etc/sec_config_oem
 vendor/lib/libconfigdb.so
-vendor/lib/libdsi_netctrl.so
-vendor/lib/libnetmgr.so
-vendor/lib/libnetmgr_common.so
 vendor/lib/libpdmapper.so
 vendor/lib/libpdnotifier.so
 vendor/lib/libqcci_legacy.so
@@ -558,7 +555,6 @@ vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 # SEC features
 vendor/lib/libfloatingfeature.so
 vendor/lib/libsecnativefeature.so
-vendor/lib/libsemnativecarrierfeature.so
 vendor/lib64/libfloatingfeature.so
 vendor/lib64/libsecnativefeature.so
 vendor/lib64/libsemnativecarrierfeature.so
