@@ -95,7 +95,7 @@
 /(vendor|system/vendor)/bin/factory\.ssc                                                                    u:object_r:factory_ssc_exec:s0
 /(vendor|system/vendor)/bin/secril_config_svc                                                               u:object_r:secril_config_svc_exec:s0
 
-# Hals
+# HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.samsung                  u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider-service\.samsung                         u:object_r:hal_camera_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@[0-9]\.[0-9]-service\.widevine                        u:object_r:hal_drm_widevine_exec:s0
@@ -117,6 +117,9 @@
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch\@[0-9]\.[0-9]-service\.samsung_sm8250                 u:object_r:hal_lineage_touch_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.gnss@2\.0-service                                 u:object_r:hal_gnss_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.thermal@1\.0-service                              u:object_r:hal_thermal_default_exec:s0
+
+# Misc daemons
 /(vendor|system/vendor)/bin/hw/gps\.sh                                                                      u:object_r:gpsd_exec:s0
 /(vendor|system/vendor)/bin/hw/gpsd                                                                         u:object_r:gpsd_exec:s0
+/(vendor|system/vendor)/bin/hw/macloader                                                                    u:object_r:macloader_exec:s0
 /(vendor|system/vendor)/bin/hw/sehradiomanager                                                              u:object_r:sehradiomanager_exec:s0
