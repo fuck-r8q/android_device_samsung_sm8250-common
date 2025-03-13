@@ -134,6 +134,10 @@ $(call soong_config_set,samsungCameraVars,needs_sec_reserved_field,true)
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider-service.samsung
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images_vendor
+
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
