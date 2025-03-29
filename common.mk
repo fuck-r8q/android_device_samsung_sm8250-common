@@ -370,7 +370,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-ctrl \
-    libwpa_client \
     WifiOverlay \
     wpa_cli \
     wpa_supplicant \
