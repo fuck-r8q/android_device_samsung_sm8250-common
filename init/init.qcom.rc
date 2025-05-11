@@ -693,14 +693,6 @@ on charger
     # setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
 
-# Add poweroffhandler
-service poweroffhandler /system/vendor/bin/poweroffhandler
-    class core
-    user media
-    group graphics audio
-    disabled
-    oneshot
-
 # Mixed HWC versions among targets 
 on property:init.svc.surfaceflinger=restarting
     stop vendor.qti.hardware.display.composer
