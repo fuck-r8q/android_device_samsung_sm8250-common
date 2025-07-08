@@ -152,7 +152,8 @@ TARGET_USES_ION := true
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
 
-# Prop files
+# Properties
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
