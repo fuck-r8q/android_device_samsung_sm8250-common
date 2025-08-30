@@ -300,6 +300,7 @@ vendor/lib64/libfastcvopt.so
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
+vendor/lib64/hw/gatekeeper.mdfpp.so
 
 # Graphics (Adreno)
 vendor/lib/egl/eglSubDriverAndroid.so
