@@ -2,6 +2,8 @@ r_dir_file(hal_keymaster_default, dak_efs_file)
 
 allow hal_keymaster_default mnt_vendor_file:dir r_dir_perms;
 allow hal_keymaster_default sec_efs_file:dir r_dir_perms;
+allow hal_keymaster_default vendor_keymaster_data_file:dir { create_dir_perms watch watch_reads };
+allow hal_keymaster_default vendor_keymaster_data_file:file { create_file_perms watch watch_reads };
 
 allow hal_keymaster_default {
     ssp_device
