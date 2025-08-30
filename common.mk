@@ -204,9 +204,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
-# Include
-$(call soong_config_set,samsungVars,target_specific_header_path,$(LOCAL_PATH)/include)
-
 # Input configs
 ifeq ($(TARGET_IS_TABLET),true)
 PRODUCT_COPY_FILES += \
@@ -344,7 +341,7 @@ endif
 
 # Touch features
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch-service.samsung_sm8250
+    vendor.lineage.touch-service.samsung
 
 # Vibrator
 PRODUCT_PACKAGES += \
