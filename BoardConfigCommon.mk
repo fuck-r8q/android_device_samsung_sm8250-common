@@ -76,9 +76,7 @@ BOARD_KERNEL_PAGESIZE      := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_SOURCE := kernel/samsung/sm8250
-TARGET_KERNEL_CONFIG := \
-    vendor/kona-perf_defconfig \
-    vendor/samsung/kona-sec-common.config
+TARGET_KERNEL_CONFIG := vendor/kona-vanadium_defconfig
 
 # Additional root folders
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
