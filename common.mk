@@ -219,9 +219,11 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.samsung
 
 # FlipFlap
+ifeq ($(TARGET_IS_LINEAGEOS),true)
 ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
     FlipFlap
+endif
 endif
 
 # Gatekeeper
