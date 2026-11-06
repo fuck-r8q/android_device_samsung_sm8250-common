@@ -68,8 +68,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 29
+# Shipping API level (29)
+PRODUCT_SHIPPING_API_LEVEL := 32
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
