@@ -124,7 +124,6 @@ debug.sf.enable_egl_image_tracker=0
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
 debug.cpurend.vsync=false
-debug.hwui.use_buffer_age=false
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
