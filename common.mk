@@ -63,7 +63,6 @@ SYSTEMUI_OPTIMIZE_JAVA ?= true
 # Partitions
 PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
-    vendor_firmware_mnt_mountpoint \
     vendor_firmware-modem_mountpoint
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
