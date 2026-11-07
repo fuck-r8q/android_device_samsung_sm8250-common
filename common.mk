@@ -421,7 +421,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel/power-libperfmgr \
     hardware/samsung \
     vendor/qcom/opensource/commonsys-intf/display \
-    vendor/qcom/opensource/commonsys/display/libqdmetadata
+    vendor/qcom/opensource/commonsys/display/libqdmetadata \
+    vendor/qcom/opensource/commonsys/display/services/config/src
 
 # Inherit proprietary blobs
 $(call inherit-product, vendor/samsung/sm8250-common/sm8250-common-vendor.mk)
