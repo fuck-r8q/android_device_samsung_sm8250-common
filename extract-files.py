@@ -20,9 +20,6 @@ from extract_utils.main import (
 namespace_imports = [
     'device/samsung/sm8250-common',
     'hardware/samsung',
-    'vendor/qcom/opensource/commonsys/display',
-    'vendor/qcom/opensource/commonsys-intf/display',
-    'vendor/qcom/opensource/dataservices',
 ]
 
 
