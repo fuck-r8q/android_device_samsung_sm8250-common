@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Add common definitions for Qualcomm
 $(call soong_config_set,rfs,mpss_firmware_symlink_target,firmware_modem)
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
+$(call inherit-product, device/qcom/common/common.mk)
 
 # Optimize everything for preopt
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
@@ -187,24 +187,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 # Display
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display \
-    gralloc.qcom \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.memtrack-service
-
-ifneq ($(TARGET_IS_TABLET),true)
-PRODUCT_PACKAGES += \
-    AdvancedDisplay
-endif
-
-# Doze
-ifneq ($(TARGET_IS_TABLET),true)
-PRODUCT_PACKAGES += \
-    SamsungDoze
-endif
+$(call inherit-product, hardware/qcom/display/config/display-product.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -267,10 +250,6 @@ $(call soong_config_set,lineage_health,fast_charge_node,/sys/class/sec/switch/af
 $(call soong_config_set,lineage_health,fast_charge_value_none,1)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,0)
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay-service.samsung-qcom
-
 # Cgroup & task_profiles
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
@@ -307,8 +286,7 @@ $(call soong_config_set_bool,samsungCodec2Vars,uses_legacy_component_store,true)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -366,17 +344,10 @@ endif
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr \
-    libqti-perfd-client \
     libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-
-# PowerShare
-ifneq ($(TARGET_IS_TABLET),true)
-PRODUCT_PACKAGES += \
-    vendor.lineage.powershare-service.samsung
-endif
 
 # Public libraries
 PRODUCT_COPY_FILES += \
@@ -413,10 +384,6 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml
 endif
 
-# Touch features
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch-service.samsung
-
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.samsung
@@ -452,9 +419,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel/pixelstats \
     hardware/google/pixel/power-libperfmgr \
-    hardware/qcom-caf/common/libqti-perfd-client \
-    hardware/samsung \
-    vendor/qcom/opensource/usb/etc
+    hardware/samsung
 
 # Inherit proprietary blobs
 $(call inherit-product, vendor/samsung/sm8250-common/sm8250-common-vendor.mk)

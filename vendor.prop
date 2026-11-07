@@ -222,8 +222,6 @@ ro.vendor.nfc.support.uicc=true
 # OEM Unlock
 ro.oem_unlock_supported=1
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
 vendor.powerhal.disp.idle_support=true
 
 # RIL

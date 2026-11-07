@@ -37,6 +37,14 @@ TARGET_BOOTLOADER_BOARD_NAME := kona
 
 TARGET_NO_BOOTLOADER := true
 
+# Display
+include hardware/qcom/display/config/display-board.mk
+
+$(call soong_config_set_bool,qtidisplay,default,true)
+$(call soong_config_set_bool,qtidisplay,drmpp,true)
+$(call soong_config_set_bool,qtidisplay,gralloc4,true)
+$(call soong_config_set_bool,qtidisplay,udfps,true)
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
@@ -73,10 +81,16 @@ BOARD_KERNEL_CMDLINE := \
 BOARD_KERNEL_BASE          := 0x00000000
 BOARD_KERNEL_PAGESIZE      := 4096
 
+ifneq ($(filter userdebug eng,$(TARGET_BUILD_VARIANT)),)
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+SELINUX_IGNORE_NEVERALLOWS := true
+endif
+
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_SOURCE := kernel/samsung/sm8250
-TARGET_KERNEL_CONFIG := vendor/kona-vanadium_defconfig
+KERNEL_DEFCONFIG := vendor/kona-vanadium_defconfig
+KERNEL_FRAGMENT_CONFIG := arch/arm64/configs/vendor/samsung/r8q.config
 
 # Additional root folders
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
@@ -104,8 +118,6 @@ BOARD_USES_METADATA_PARTITION        := true
 TARGET_USERIMAGES_USE_F2FS           := true
 
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
-
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext odm product vendor
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := $(shell echo $$(($(BOARD_SUPER_PARTITION_SIZE) - 4194304))) # (BOARD_SUPER_PARTITION_SIZE - "reasonable overhead of 4 MiB")
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
@@ -137,13 +149,11 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     hardware/samsung/vintf/samsung_framework_compatibility_matrix.xml
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/manifest.xml
 ifneq ($(TARGET_IS_WIFI-ONLY),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/network_manifest.xml
 endif
-DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
 # ART
 WITH_DEXPREOPT := true
@@ -179,9 +189,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # SePolicy
-include device/lineage/sepolicy/libion/sepolicy.mk
+include vendor/aospa/sepolicy/libion/sepolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
-include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private

@@ -126,9 +126,6 @@
     -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
-    <!-- Whether device supports double tap to wake -->
-    <bool name="config_supportDoubleTapWake">true</bool>
-
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulsePickup">true</bool>
 
@@ -161,8 +158,8 @@
         <item>"/system/framework/services.jar"</item>
         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
-        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
-        <item>"/system_ext/priv-app/SystemUI/oat/arm64/SystemUI.odex"</item>
+        <item>"/system_ext/priv-app/ParanoidSystemUI/ParanoidSystemUI.apk"</item>
+        <item>"/system_ext/priv-app/ParanoidSystemUI/oat/arm64/ParanoidSystemUI.odex"</item>
         <item>"/system/framework/arm64/boot-framework.oat"</item>
         <item>"/system/framework/oat/arm64/services.odex"</item>
         <item>"/system/bin/surfaceflinger"</item>
@@ -184,9 +181,6 @@
 
     <!-- True if camera app should be pinned via Pinner Service -->
     <bool name="config_pinnerCameraApp">false</bool>
-
-    <!-- True if home app should be pinned via Pinner Service -->
-    <bool name="config_pinnerHomeApp">true</bool>
 
     <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
          manually by the user. Off by default, since the expected haptic feedback may not be
@@ -211,11 +205,6 @@
 
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">680</integer>
-
-    <!-- Disables compatibility WAL mode.
-         In this mode, only database journal mode will be changed, connection pool
-         size will still be limited to a single connection. -->
-    <bool name="db_compatibility_wal_supported">false</bool>
 
     <!-- The default journal mode to use use when Write-Ahead Logging is not active.
          Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
@@ -263,9 +252,6 @@
          manager will disable alpha trasformation in animations where not
          strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
-
-     <!-- Determines whether the shell features all run on another thread. -->
-     <bool name="config_enableShellMainThread">true</bool>
 
     <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
     <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.8</item>
