@@ -187,6 +187,13 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 # Display
 $(call inherit-product, hardware/qcom/display/config/display-product.mk)
 
+PRODUCT_PACKAGES += \
+    gralloc.qcom \
+    vendor.qti.hardware.memtrack-service
+
+$(call soong_config_set,qtidisplaycommonsys,gralloc_handle_has_no_custom_content_md_reserved_size,true)
+$(call soong_config_set,qtidisplaycommonsys,gralloc_handle_has_no_ubwcp,true)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
