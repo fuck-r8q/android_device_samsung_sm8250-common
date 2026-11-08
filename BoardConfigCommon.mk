@@ -90,7 +90,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_SOURCE := kernel/samsung/sm8250
 KERNEL_DEFCONFIG := vendor/kona-vanadium_defconfig
-KERNEL_FRAGMENT_CONFIG := arch/arm64/configs/vendor/samsung/r8q.config
+KERNEL_FRAGMENT_CONFIG := vendor/samsung/r8q.config
 
 # Additional root folders
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
