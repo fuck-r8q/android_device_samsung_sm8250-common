@@ -363,6 +363,8 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor:32
 
 # RIL
+$(call soong_config_set_bool,rmnetctl,old_rmnet_data,true)
+
 ifneq ($(TARGET_IS_WIFI-ONLY),true)
 PRODUCT_PACKAGES += \
     secril_config_svc \
