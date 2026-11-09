@@ -28,6 +28,9 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy': blob_fixup()
+        .regex_replace(r'(?m)^mremap: arg3 == 3$',
+                       'mremap: arg3 == 3 || arg3 == MREMAP_MAYMOVE'),
     ('vendor/lib/mediadrm/libwvdrmengine.so', 'vendor/lib/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
     'vendor/lib64/libarcsoft_multi_frame_video_hdr.so': blob_fixup()
