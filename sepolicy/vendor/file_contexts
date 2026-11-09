@@ -81,6 +81,7 @@
 /spu(/.*)?                                   u:object_r:spu_file:s0
 
 # Sysfs
+/sys/devices/platform/soc/soc:battery/power_supply/battery/wc_tx_en                              --  u:object_r:sysfs_powershare:s0
 /sys/class/power_supply(/.*)?                                                                   --  u:object_r:sysfs_batteryinfo:s0
 /sys/class/power_supply/battery(/.*)?                                                           --  u:object_r:sysfs_batteryinfo:s0
 /sys/devices/platform/soc/soc:battery/power_supply(/.*)?                                        --  u:object_r:sysfs_batteryinfo:s0
